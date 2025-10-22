@@ -4,30 +4,39 @@ import Home from "../Pages/Home";
 import ToyDetails from "../Pages/ToyDetails";
 import Login from "../Pages/Login";
 import Registration from "../Pages/Registration";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import LoadingSpinner from "../Pages/LoadingSpinner";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
     children: [
-        {
-            index: true,
-            Component: Home,
-            loader: ()=> fetch('/toys.json')
-        },
-        {
-            path: 'toy/:id',
-            Component: ToyDetails,
-            loader: ()=> fetch('/toys.json')
-        },
-        {
-          path:'signin', 
-          Component: Login
-        },
-        {
-          path: 'registration',
-          Component: Registration
-        }
+      {
+        index: true,
+        Component: Home,
+        loader: () => fetch("/toys.json"),
+        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>
+      },
+      {
+        path: "toy/:id",
+        element: (
+          <PrivateRoute>
+            <ToyDetails></ToyDetails>
+          </PrivateRoute>
+        ),
+        // Component: ToyDetails,
+        loader: () => fetch("/toys.json"),
+        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>
+      },
+      {
+        path: "signin",
+        Component: Login,
+      },
+      {
+        path: "registration",
+        Component: Registration,
+      },
     ],
   },
 ]);

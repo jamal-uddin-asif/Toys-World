@@ -1,31 +1,43 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router';
-import { AuthContext } from '../Context/AuthContext';
+import React, { useContext, useState } from "react";
+import { Link } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const Registration = () => {
-    const {createUser} = useContext(AuthContext)
-    console.log(createUser)
-    
-    const handleRegis = (e) =>{
-        e.preventDefault();
-        const name = e.target.name.value;
-        const photo = e.target.photo.value;
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        console.log({name, photo, email, password})
+  const { createUser } = useContext(AuthContext);
+  const [passErr, setPassErr] = useState('')
 
-        createUser(email, password)
-        .then(result=>{
-          console.log(result)
-        })
-        .catch(err=>{
-          console.log(err)
-        })
+
+  const handleRegis = (e) => {
+    e.preventDefault();
+    setPassErr('')
+
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log({ name, photo, email, password });
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+
+    if (!passwordRegex.test(password)) {
+      setPassErr("Password must be 6 character with one upperCase and one lowerCase");
+      return;
     }
-    return (
-           <div className="h-screen flex items-center">
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  return (
+    <div className="h-screen flex items-center">
       <div className="card bg-base-100 border border-gray-400 mx-auto  w-full max-w-sm shrink-0 ">
-        <form onSubmit={handleRegis}  className="card-body">
+        <form onSubmit={handleRegis} className="card-body">
           <h1 className="font-semibold  text-xl ">Create an account</h1>
           <fieldset className="fieldset">
             {/* Name  */}
@@ -60,12 +72,12 @@ const Registration = () => {
               placeholder="Password"
               name="password"
             />
-
+            <p className="text-red-700">{passErr}</p>
             <button className="btn btn-secondary text-black mt-4">
               Register
             </button>
             {/* google  */}
-             <button className="btn bg-white text-black border-[#e5e5e5]">
+            <button className="btn bg-white text-black border-[#e5e5e5]">
               <svg
                 aria-label="Google logo"
                 width="25"
@@ -105,7 +117,7 @@ const Registration = () => {
         </form>
       </div>
     </div>
-    );
+  );
 };
 
 export default Registration;

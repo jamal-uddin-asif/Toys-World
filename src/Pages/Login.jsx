@@ -1,25 +1,44 @@
 import React, { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 
 const Login = () => {
-  const {signInUser} = useContext(AuthContext)
-  console.log(signInUser)
+  const { signInUser } = useContext(AuthContext);
+  const location = useLocation()
+  const navigate = useNavigate()
 
-  
+  const from = location.state || '/';
 
+  const handleSignIn = (e) => {
+    e.preventDefault();
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+ 
+
+
+    signInUser(email, password)
+    .then(result=>{
+      console.log(result)
+      navigate(from)
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+  };
 
   return (
     <div className="h-[85vh] flex items-center">
       <div className="card bg-base-100 border border-gray-400 mx-auto  w-full max-w-sm shrink-0 ">
-        <form className="card-body">
+        <form onSubmit={handleSignIn} className="card-body">
           <h1 className="font-semibold  text-xl ">Login</h1>
           <fieldset className="fieldset">
             {/* email  */}
             <label className="label">Email</label>
             <input
               type="email"
-              className="input border-0 input focus:outline-0  border-b-1 p-0"
+              className="input border-0  focus:outline-0  border-b p-0"
               placeholder="Email"
               name="email"
             />
@@ -27,7 +46,7 @@ const Login = () => {
             <label className="label">Password</label>
             <input
               type="password"
-              className="input border-0  input focus:outline-0 border-b-1 p-0"
+              className="input border-0   focus:outline-0 border-b p-0"
               placeholder="Password"
               name="password"
             />
@@ -73,7 +92,9 @@ const Login = () => {
         </form>
         <p className="text-center py-3.5">
           Dont have an account?{" "}
-          <Link to={'/registration'} className="text-secondary ml-2">SignUp</Link>
+          <Link to={"/registration"} className="text-secondary ml-2">
+            SignUp
+          </Link>
         </p>
       </div>
     </div>
