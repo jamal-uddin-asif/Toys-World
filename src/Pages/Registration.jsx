@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const Registration = () => {
 
-  const { createUser, googleSignIn } = useContext(AuthContext);
+  const { createUser, googleSignIn, updateUserProfile, signout } = useContext(AuthContext);
   const [passErr, setPassErr] = useState('')
   const location = useLocation()
   const navigate = useNavigate()
@@ -33,6 +33,19 @@ const Registration = () => {
 
     createUser(email, password)
       .then((result) => {
+        updateUserProfile({displayName: name, photoURL: photo})
+        .then(()=>{
+            signout()
+            .then(()=>{
+
+            })
+            .catch(err=>{
+              console.log(err)
+            })
+        })
+        .catch(err=>{
+          console.log(err)
+        })
         console.log(result);
       })
       .catch((err) => {
@@ -46,6 +59,7 @@ const Registration = () => {
 
       navigate(from)
       toast.success('Signin successful')
+
     })
     .catch(err=>{
       console.log(err)
