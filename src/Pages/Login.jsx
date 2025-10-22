@@ -41,6 +41,7 @@ const Login = () => {
   const handleGoogleSignIn = () =>{
     googleSignIn()
     .then(result=>{
+      console.log(result)
       toast.success('Signin successful')
       navigate(from)
     })
