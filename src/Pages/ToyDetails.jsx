@@ -1,11 +1,11 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router";
 import Container from "../Components/Container";
+import { toast } from "react-toastify";
 
 const ToyDetails = () => {
   const { id } = useParams();
   const toys = useLoaderData();
-
   const clickedToy = toys.find((toy) => toy.toyId === Number(id));
   const {
     toyId,
@@ -20,6 +20,25 @@ const ToyDetails = () => {
     description,
   } = clickedToy;
   console.log(clickedToy);
+
+  const handleTryNow = (e)=>{
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    
+    // console.log({name, email})
+    if(name && email){
+       toast.success('Successful')
+      e.target.reset();
+
+      return
+    }else{
+      toast.error('Fill the form')
+
+    }
+
+
+  }
   return (
     <Container>
     <div className="md:flex p-3 gap-10 py-9">
@@ -57,6 +76,36 @@ const ToyDetails = () => {
             <p >Description: {description}</p>
         </div>
       </div>
+    </div>
+
+    {/* form  */}
+    <div className="md:flex justify-center items-center ">
+      <h1 className="p-2 flex-1 md:text-end text-purple-800 font-bold md:text-5xl text-4xl">Try Now</h1>
+      <form onSubmit={handleTryNow}  className="card-body">
+          <fieldset className="fieldset">
+            {/* Name  */}
+            <label className="label">Name</label>
+            <input
+              type="text"
+              className="input focus:outline-0  border-0  border-b-1 p-0"
+              placeholder="Name"
+              name="name"
+            />
+        
+            {/* email  */}
+            <label className="label">Email</label>
+            <input
+              type="email"
+              className="input border-0 input focus:outline-0  border-b-1 p-0"
+              placeholder="Email"
+              name="email"
+            />
+           
+          </fieldset>
+            <button className="btn btn-secondary text-black mt-4">
+              Try Now
+            </button>
+        </form>
     </div>
     </Container>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import Container from "./Container";
 
 const Navber = () => {
@@ -49,7 +49,7 @@ const Navber = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Sign up</a>
+        <Link to={'/signin'} className="btn">Sign in</Link>
       </div>
      
     </div>
