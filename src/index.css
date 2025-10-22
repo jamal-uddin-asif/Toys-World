@@ -7,3 +7,7 @@
  *{
     font-family: "Fredoka", sans-serif;
  }
+
+ li a.active{
+  @apply bg-purple-200 text-purple-800 font-semibold
+ }
