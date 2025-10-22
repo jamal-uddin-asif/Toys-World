@@ -7,6 +7,7 @@ import Registration from "../Pages/Registration";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import LoadingSpinner from "../Pages/LoadingSpinner";
 import Profile from "../Pages/Profile";
+import ErrorPage from "../Pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -47,5 +48,12 @@ export const router = createBrowserRouter([
         ),
       },
     ],
+
+    
   },
+
+  {
+    path: '/*',
+    Component: ErrorPage
+  }
 ]);
