@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
@@ -6,9 +6,14 @@ import { toast } from "react-toastify";
 const Login = () => {
   const { signInUser, googleSignIn } = useContext(AuthContext);
   const [err, setErr] = useState('')
-  const location = useLocation()
-
   const navigate = useNavigate()
+  const location = useLocation()
+  
+  // const emailRef = useRef('')
+  // const email = emailRef.current.value;
+  const [email, setEmail] = useState('')
+
+  
 
   
 
@@ -59,6 +64,8 @@ const Login = () => {
             {/* email  */}
             <label className="label">Email</label>
             <input
+            // ref={emailRef}
+            onChange={(e)=>setEmail(e.target.value)}
               type="email"
               className="input border-0  focus:outline-0  border-b p-0"
               placeholder="Email"
@@ -75,9 +82,9 @@ const Login = () => {
             <p className="text-red-600">{err}</p>
 
             <div className="mt-2">
-              <a className="link link-hover text-secondary ">
+              <Link state={email}  to={'/forgetPassword'} className="link link-hover text-secondary ">
                 Forgot password?
-              </a>
+              </Link>
             </div>
             <button className="btn btn-secondary text-black mt-4">Login</button>
             {/* Google */}

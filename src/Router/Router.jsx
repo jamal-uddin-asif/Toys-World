@@ -8,6 +8,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import LoadingSpinner from "../Pages/LoadingSpinner";
 import Profile from "../Pages/Profile";
 import ErrorPage from "../Pages/ErrorPage";
+import ForgetPassPage from "../Pages/ForgetPassPage";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: 'forgetPassword',
+        Component: ForgetPassPage
+      }
     ],
 
     

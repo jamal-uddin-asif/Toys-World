@@ -2,20 +2,22 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
+import { Eye, EyeClosed, EyeOff } from "lucide-react";
 
 const Registration = () => {
+  const { createUser, googleSignIn, updateUserProfile, signout } =
+    useContext(AuthContext);
+  const [passErr, setPassErr] = useState("");
+  const [show, setShow] = useState(false);
 
-  const { createUser, googleSignIn, updateUserProfile, signout } = useContext(AuthContext);
-  const [passErr, setPassErr] = useState('')
-  const location = useLocation()
-  const navigate = useNavigate()
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const from = location.state || '/'
-
+  const from = location.state || "/";
 
   const handleRegis = (e) => {
     e.preventDefault();
-    setPassErr('')
+    setPassErr("");
 
     const name = e.target.name.value;
     const photo = e.target.photo.value;
@@ -25,46 +27,45 @@ const Registration = () => {
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
-
     if (!passwordRegex.test(password)) {
-      setPassErr("Password must be 6 character with one upperCase and one lowerCase");
+      setPassErr(
+        "Password must be 6 character with one upperCase and one lowerCase"
+      );
       return;
     }
 
     createUser(email, password)
       .then((result) => {
-        updateUserProfile({displayName: name, photoURL: photo})
-        .then(()=>{
+        toast.success("Registration successful");
+        updateUserProfile({ displayName: name, photoURL: photo })
+          .then(() => {
             signout()
-            .then(()=>{
-                
-            })
-            .catch(err=>{
-              console.log(err)
-            })
-        })
-        .catch(err=>{
-          console.log(err)
-        })
+              .then(() => {})
+              .catch((err) => {
+                console.log(err);
+              });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
         console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(err.code);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        navigate(from);
+        toast.success("Signin successful");
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
-  const handleGoogleSignIn = () =>{
-    googleSignIn()
-    .then(result=>{
-
-      navigate(from)
-      toast.success('Signin successful')
-
-    })
-    .catch(err=>{
-      console.log(err)
-    })
-  }
   return (
     <div className="h-screen flex items-center">
       <div className="card bg-base-100 border border-gray-400 mx-auto  w-full max-w-sm shrink-0 ">
@@ -96,19 +97,43 @@ const Registration = () => {
               name="email"
             />
             {/* pass  */}
-            <label className="label">Password</label>
-            <input
-              type="password"
-              className="input border-0   focus:outline-0 border-b p-0"
-              placeholder="Password"
-              name="password"
-            />
+            <div className="relative">
+              <label className="label">Password</label>
+              <input
+                type={`${show ? 'text' : 'password'}`}
+                className="input border-0   focus:outline-0 border-b p-0"
+                placeholder="Password"
+                name="password"
+              />
+              {show ? (
+                <button type="button" 
+                  onClick={() => setShow(false)}
+                  className="absolute top-6 right-6 z-10"
+                >
+                   <Eye />
+               
+                </button >
+              ) : (
+                <button type="button"
+                  onClick={() => setShow(true)}
+                  className="absolute top-6 right-6 z-10"
+                >
+                    <EyeOff />
+                </button >
+              )}
+              {/* <p onClick={()=>setShow(true)} className="absolute top-6 right-6 z-10"><EyeOff /></p> */}
+              {/* <p onClick={()=>setShow(false)} className="absolute top-6 right-6 z-10"><Eye /></p> */}
+            </div>
             <p className="text-red-700">{passErr}</p>
             <button className="btn btn-secondary text-black mt-4">
               Register
             </button>
             {/* google  */}
-            <button type="button" onClick={handleGoogleSignIn} className="btn bg-white text-black border-[#e5e5e5]">
+            <button
+              type="button"
+              onClick={handleGoogleSignIn}
+              className="btn bg-white text-black border-[#e5e5e5]"
+            >
               <svg
                 aria-label="Google logo"
                 width="25"
