@@ -37,7 +37,7 @@ const Registration = () => {
         .then(()=>{
             signout()
             .then(()=>{
-
+                
             })
             .catch(err=>{
               console.log(err)

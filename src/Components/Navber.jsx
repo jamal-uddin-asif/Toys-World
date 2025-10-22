@@ -10,15 +10,13 @@ const Navber = () => {
   const links = (
     <>
       <li>
-        <NavLink to={'/'}>Home</NavLink>
+        <NavLink to={"/"}>Home</NavLink>
       </li>
-      {
-        user && (
-          <li><NavLink to={'/profile'}>Profile</NavLink></li>
-
-        )
-      }
-   
+      {user && (
+        <li>
+          <NavLink to={"/profile"}>Profile</NavLink>
+        </li>
+      )}
     </>
   );
 
@@ -32,7 +30,7 @@ const Navber = () => {
       });
   };
   return (
-    <div className="bg-black text-white">
+    <div className="bg-linear-to-l from-pink-950 to-purple-950 text-white">
       <Container>
         <div className="navbar  ">
           <div className="navbar-start">
@@ -65,16 +63,31 @@ const Navber = () => {
                 {links}
               </ul>
             </div>
-            <a className="btn btn-ghost text-xl">Toys World</a>
+            <a className="btn btn-ghost text-2xl bg-linear-to-r from-purple-300 to-purple-900 text-transparent bg-clip-text">
+              Toys World
+            </a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>
           <div className="navbar-end">
             {user ? (
-              <button onClick={handleSignOut} className="bg-red-800">
-                Logout
-              </button>
+              <div className="flex relative">
+                <h1 className=" font-semibold text-">{user?.displayName}</h1>
+                <Link to={'/profile'}>
+                  <img
+                    className="w-12 h-12 mr-3 rounded-full"
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                </Link>
+                <button
+                  onClick={handleSignOut}
+                  className="bg-gradient-to-r from-purple-500 to-purple-900 p-2 rounded-xl font-semibold"
+                >
+                  Logout
+                </button>
+              </div>
             ) : (
               <Link to={"/signin"} className="btn">
                 Sign in

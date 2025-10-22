@@ -20,6 +20,7 @@ const Profile = () => {
     .then(()=>{
       toast.success("Profile updated")
       setUser({...user, update})
+      e.target.reset()
     })
     .catch(err=>{
       setUser(user)
@@ -29,7 +30,7 @@ const Profile = () => {
   return (
     <div>
       <Container className={"md:flex p-4 justify-center items-center min-h-[80vh] "}>
-        <div className="py-7 md:px-17 rounded-2xl p-4 bg-amber-100">
+        <div className="py-7 md:px-17 rounded-2xl p-4 bg-linear-to-r from-amber-100 to-amber-200">
           <div>
             {user?.photoURL !== null ? (
               <img className="rounded-full w-40 h-40" src={user?.photoURL} alt="" />

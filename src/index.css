@@ -9,5 +9,5 @@
  }
 
  li a.active{
-  @apply bg-purple-200 text-purple-800 font-semibold
+  @apply bg-linear-to-b from-purple-300 to-purple-600 text-purple-800 font-semibold
  }
