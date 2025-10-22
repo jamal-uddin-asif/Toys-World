@@ -10,11 +10,15 @@ const Navber = () => {
   const links = (
     <>
       <li>
-        <NavLink>Home</NavLink>
+        <NavLink to={'/'}>Home</NavLink>
       </li>
-      <li>
-        <NavLink>Profile</NavLink>
-      </li>
+      {
+        user && (
+          <li><NavLink to={'/profile'}>Profile</NavLink></li>
+
+        )
+      }
+   
     </>
   );
 

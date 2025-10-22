@@ -6,6 +6,7 @@ import Login from "../Pages/Login";
 import Registration from "../Pages/Registration";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import LoadingSpinner from "../Pages/LoadingSpinner";
+import Profile from "../Pages/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ export const router = createBrowserRouter([
         index: true,
         Component: Home,
         loader: () => fetch("/toys.json"),
-        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>
+        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
       },
       {
         path: "toy/:id",
@@ -27,7 +28,7 @@ export const router = createBrowserRouter([
         ),
         // Component: ToyDetails,
         loader: () => fetch("/toys.json"),
-        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>
+        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
       },
       {
         path: "signin",
@@ -36,6 +37,14 @@ export const router = createBrowserRouter([
       {
         path: "registration",
         Component: Registration,
+      },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
       },
     ],
   },

@@ -1,21 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, googleSignIn } = useContext(AuthContext);
+  const [err, setErr] = useState('')
   const location = useLocation()
+
   const navigate = useNavigate()
+
+  
 
   const from = location.state || '/';
 
   const handleSignIn = (e) => {
     e.preventDefault();
+    setErr('')
 
     const email = e.target.email.value;
     const password = e.target.password.value;
 
- 
+    if(!email && !password){
+      setErr('Please Fill the form')
+      return
+    }
 
 
     signInUser(email, password)
@@ -24,9 +33,21 @@ const Login = () => {
       navigate(from)
     })
     .catch(err=>{
+      setErr('Invalid Information')
       console.log(err)
     })
   };
+
+  const handleGoogleSignIn = () =>{
+    googleSignIn()
+    .then(result=>{
+      toast.success('Signin successful')
+      navigate(from)
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+  }
 
   return (
     <div className="h-[85vh] flex items-center">
@@ -50,6 +71,7 @@ const Login = () => {
               placeholder="Password"
               name="password"
             />
+            <p className="text-red-600">{err}</p>
 
             <div className="mt-2">
               <a className="link link-hover text-secondary ">
@@ -58,7 +80,7 @@ const Login = () => {
             </div>
             <button className="btn btn-secondary text-black mt-4">Login</button>
             {/* Google */}
-            <button className="btn bg-white text-black border-[#e5e5e5]">
+            <button type="button" onClick={handleGoogleSignIn} className="btn bg-white text-black border-[#e5e5e5]">
               <svg
                 aria-label="Google logo"
                 width="25"
@@ -92,7 +114,7 @@ const Login = () => {
         </form>
         <p className="text-center py-3.5">
           Dont have an account?{" "}
-          <Link to={"/registration"} className="text-secondary ml-2">
+          <Link state={from} to={"/registration"} className="text-secondary ml-2">
             SignUp
           </Link>
         </p>

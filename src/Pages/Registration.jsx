@@ -1,11 +1,16 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
 
 const Registration = () => {
-  const { createUser } = useContext(AuthContext);
+
+  const { createUser, googleSignIn } = useContext(AuthContext);
   const [passErr, setPassErr] = useState('')
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const from = location.state || '/'
 
 
   const handleRegis = (e) => {
@@ -34,6 +39,18 @@ const Registration = () => {
         console.log(err);
       });
   };
+
+  const handleGoogleSignIn = () =>{
+    googleSignIn()
+    .then(result=>{
+
+      navigate(from)
+      toast.success('Signin successful')
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+  }
   return (
     <div className="h-screen flex items-center">
       <div className="card bg-base-100 border border-gray-400 mx-auto  w-full max-w-sm shrink-0 ">
@@ -77,7 +94,7 @@ const Registration = () => {
               Register
             </button>
             {/* google  */}
-            <button className="btn bg-white text-black border-[#e5e5e5]">
+            <button type="button" onClick={handleGoogleSignIn} className="btn bg-white text-black border-[#e5e5e5]">
               <svg
                 aria-label="Google logo"
                 width="25"
