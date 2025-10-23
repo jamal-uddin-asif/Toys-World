@@ -63,6 +63,7 @@ const AuthProvider = ({ children }) => {
     signout,
     resetPassword,
     loading,
+    setLoading
   };
   return (
     <div>

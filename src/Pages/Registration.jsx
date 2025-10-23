@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { Eye, EyeClosed, EyeOff } from "lucide-react";
 
 const Registration = () => {
-  const { createUser, googleSignIn, updateUserProfile, signout } =
+  const { createUser, googleSignIn, updateUserProfile, signout, setLoading } =
     useContext(AuthContext);
   const [passErr, setPassErr] = useState("");
   const [show, setShow] = useState(false);
@@ -26,6 +26,11 @@ const Registration = () => {
     console.log({ name, photo, email, password });
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+    if (!email) {
+      setPassErr("Enter your email first");
+      return;
+    }
 
     if (!passwordRegex.test(password)) {
       setPassErr(
@@ -52,7 +57,10 @@ const Registration = () => {
       })
       .catch((err) => {
         console.log(err);
-        toast.error(err.code);
+        if (err.code === "auth/email-already-in-use") {
+          toast.error("Opss! this email already used");
+        }
+        setLoading(false);
       });
   };
 
@@ -77,7 +85,7 @@ const Registration = () => {
             <label className="label">Name</label>
             <input
               type="text"
-              className="input focus:outline-0  border-0  border-b-1 p-0"
+              className="input focus:outline-0  border-0  border-b p-0"
               placeholder="First name"
               name="name"
             />
@@ -101,31 +109,32 @@ const Registration = () => {
             <div className="relative">
               <label className="label">Password</label>
               <input
-                type={`${show ? 'text' : 'password'}`}
+                type={`${show ? "text" : "password"}`}
                 className="input border-0   focus:outline-0 border-b p-0"
                 placeholder="Password"
                 name="password"
               />
               {show ? (
-                <button type="button" 
+                <button
+                  type="button"
                   onClick={() => setShow(false)}
                   className="absolute top-6 right-6 z-10"
                 >
-                   <Eye />
-               
-                </button >
+                  <Eye />
+                </button>
               ) : (
-                <button type="button"
+                <button
+                  type="button"
                   onClick={() => setShow(true)}
                   className="absolute top-6 right-6 z-10"
                 >
-                    <EyeOff />
-                </button >
+                  <EyeOff />
+                </button>
               )}
               {/* <p onClick={()=>setShow(true)} className="absolute top-6 right-6 z-10"><EyeOff /></p> */}
               {/* <p onClick={()=>setShow(false)} className="absolute top-6 right-6 z-10"><Eye /></p> */}
             </div>
-            <p className="text-red-700">{passErr}</p>
+            <p className="text-red-600 text-sm">{passErr}</p>
             <button className="btn btn-secondary text-black mt-4">
               Register
             </button>

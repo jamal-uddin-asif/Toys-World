@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { Eye, EyeOff } from "lucide-react";
 
 const Login = () => {
-  const { signInUser, googleSignIn } = useContext(AuthContext);
+  const { signInUser, googleSignIn, setLoading } = useContext(AuthContext);
   const [err, setErr] = useState("");
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
@@ -31,12 +31,17 @@ const Login = () => {
 
     signInUser(email, password)
       .then((result) => {
-        console.log(result);
+        toast.success("SignIn successful");
+        setLoading(false);
+        // console.log(result);
         navigate(from);
       })
       .catch((err) => {
         setErr("Invalid Information");
-        console.log(err);
+        if (err.code === "auth/invalid-credential") {
+          toast.error('Opss! your information was wrong');
+        }
+        setLoading(false);
       });
   };
 
@@ -73,26 +78,27 @@ const Login = () => {
             <div className="relative">
               <label className="label">Password</label>
               <input
-                type={`${show? 'text' : 'password'}`}
+                type={`${show ? "text" : "password"}`}
                 className="input border-0   focus:outline-0 border-b p-0"
                 placeholder="Password"
                 name="password"
               />
-               {show ? (
-                <button type="button" 
+              {show ? (
+                <button
+                  type="button"
                   onClick={() => setShow(false)}
                   className="absolute top-6 right-6 z-10"
                 >
-                   <Eye />
-               
-                </button >
+                  <Eye />
+                </button>
               ) : (
-                <button type="button"
+                <button
+                  type="button"
                   onClick={() => setShow(true)}
                   className="absolute top-6 right-6 z-10"
                 >
-                    <EyeOff />
-                </button >
+                  <EyeOff />
+                </button>
               )}
             </div>
             <p className="text-red-600">{err}</p>
