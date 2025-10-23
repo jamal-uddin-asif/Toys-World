@@ -68,6 +68,7 @@ const Registration = () => {
   };
   return (
     <div className="h-screen flex items-center">
+      <title>Toys-world-Registration</title>
       <div className="card bg-base-100 border border-gray-400 mx-auto  w-full max-w-sm shrink-0 ">
         <form onSubmit={handleRegis} className="card-body">
           <h1 className="font-semibold  text-xl ">Create an account</h1>

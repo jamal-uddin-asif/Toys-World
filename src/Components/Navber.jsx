@@ -1,11 +1,14 @@
-import React, { useContext } from "react";
-import { Link, NavLink } from "react-router";
+import React, { useContext, useState } from "react";
+import { Link, NavLink, useNavigation } from "react-router";
 import Container from "./Container";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
+import { ClipLoader, RotateLoader } from "react-spinners";
 
 const Navber = () => {
-  const { user, signout } = useContext(AuthContext);
+  const { user, signout, loading } = useContext(AuthContext);
+  // const navigation = useNavigation()
+  // console.log(loading)
   console.log(user);
   const links = (
     <>
@@ -13,9 +16,14 @@ const Navber = () => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       {user && (
-        <li>
-          <NavLink to={"/profile"}>Profile</NavLink>
-        </li>
+        <>
+          <li>
+            <NavLink to={"/profile"}>Profile</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/discount"}>Discount</NavLink>
+          </li>
+        </>
       )}
     </>
   );
@@ -29,6 +37,7 @@ const Navber = () => {
         console.log(err);
       });
   };
+
   return (
     <div className="bg-linear-to-l from-pink-950 to-purple-950 text-white">
       <Container>
@@ -71,16 +80,22 @@ const Navber = () => {
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>
           <div className="navbar-end">
-            {user ? (
-              <div className="flex relative">
-                <h1 className=" font-semibold text-">{user?.displayName}</h1>
-                <Link to={'/profile'}>
-                  <img
-                    className="w-12 h-12 mr-3 rounded-full"
-                    src={user?.photoURL}
-                    alt=""
-                  />
-                </Link>
+            {loading ? (
+              <ClipLoader color="white" />
+            ) : user ? (
+              <div className="flex relative ">
+                <div className="text-transparent hover:text-white">
+                  <h1 className={`font-semibold absolute -left-4 -top-2  `}>
+                    {user?.displayName}
+                  </h1>
+                  <Link to={"/profile"}>
+                    <img
+                      className="w-12 h-12 mr-3 rounded-full"
+                      src={user?.photoURL}
+                      alt=""
+                    />
+                  </Link>
+                </div>
                 <button
                   onClick={handleSignOut}
                   className="bg-gradient-to-r from-purple-500 to-purple-900 p-2 rounded-xl font-semibold"

@@ -2,61 +2,59 @@ import React, { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
+import { Eye, EyeOff } from "lucide-react";
 
 const Login = () => {
   const { signInUser, googleSignIn } = useContext(AuthContext);
-  const [err, setErr] = useState('')
-  const navigate = useNavigate()
-  const location = useLocation()
-  
+  const [err, setErr] = useState("");
+  const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
   // const emailRef = useRef('')
   // const email = emailRef.current.value;
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState("");
 
-  
-
-  
-
-  const from = location.state || '/';
+  const from = location.state || "/";
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    setErr('')
+    setErr("");
 
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    if(!email && !password){
-      setErr('Please Fill the form')
-      return
+    if (!email && !password) {
+      setErr("Please Fill the form");
+      return;
     }
 
-
     signInUser(email, password)
-    .then(result=>{
-      console.log(result)
-      navigate(from)
-    })
-    .catch(err=>{
-      setErr('Invalid Information')
-      console.log(err)
-    })
+      .then((result) => {
+        console.log(result);
+        navigate(from);
+      })
+      .catch((err) => {
+        setErr("Invalid Information");
+        console.log(err);
+      });
   };
 
-  const handleGoogleSignIn = () =>{
+  const handleGoogleSignIn = () => {
     googleSignIn()
-    .then(result=>{
-      console.log(result)
-      toast.success('Signin successful')
-      navigate(from)
-    })
-    .catch(err=>{
-      console.log(err)
-    })
-  }
+      .then((result) => {
+        console.log(result);
+        toast.success("Signin successful");
+        navigate(from);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="h-[85vh] flex items-center">
+      <title>Toys-world-Login</title>
       <div className="card bg-base-100 border border-gray-400 mx-auto  w-full max-w-sm shrink-0 ">
         <form onSubmit={handleSignIn} className="card-body">
           <h1 className="font-semibold  text-xl ">Login</h1>
@@ -64,31 +62,57 @@ const Login = () => {
             {/* email  */}
             <label className="label">Email</label>
             <input
-            // ref={emailRef}
-            onChange={(e)=>setEmail(e.target.value)}
+              // ref={emailRef}
+              onChange={(e) => setEmail(e.target.value)}
               type="email"
               className="input border-0  focus:outline-0  border-b p-0"
               placeholder="Email"
               name="email"
             />
             {/* pass  */}
-            <label className="label">Password</label>
-            <input
-              type="password"
-              className="input border-0   focus:outline-0 border-b p-0"
-              placeholder="Password"
-              name="password"
-            />
+            <div className="relative">
+              <label className="label">Password</label>
+              <input
+                type={`${show? 'text' : 'password'}`}
+                className="input border-0   focus:outline-0 border-b p-0"
+                placeholder="Password"
+                name="password"
+              />
+               {show ? (
+                <button type="button" 
+                  onClick={() => setShow(false)}
+                  className="absolute top-6 right-6 z-10"
+                >
+                   <Eye />
+               
+                </button >
+              ) : (
+                <button type="button"
+                  onClick={() => setShow(true)}
+                  className="absolute top-6 right-6 z-10"
+                >
+                    <EyeOff />
+                </button >
+              )}
+            </div>
             <p className="text-red-600">{err}</p>
 
             <div className="mt-2">
-              <Link state={email}  to={'/forgetPassword'} className="link link-hover text-secondary ">
+              <Link
+                state={email}
+                to={"/forgetPassword"}
+                className="link link-hover text-secondary "
+              >
                 Forgot password?
               </Link>
             </div>
             <button className="btn btn-secondary text-black mt-4">Login</button>
             {/* Google */}
-            <button type="button" onClick={handleGoogleSignIn} className="btn bg-white text-black border-[#e5e5e5]">
+            <button
+              type="button"
+              onClick={handleGoogleSignIn}
+              className="btn bg-white text-black border-[#e5e5e5]"
+            >
               <svg
                 aria-label="Google logo"
                 width="25"
@@ -122,7 +146,11 @@ const Login = () => {
         </form>
         <p className="text-center py-3.5">
           Dont have an account?{" "}
-          <Link state={from} to={"/registration"} className="text-secondary ml-2">
+          <Link
+            state={from}
+            to={"/registration"}
+            className="text-secondary ml-2"
+          >
             SignUp
           </Link>
         </p>

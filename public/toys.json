@@ -5,10 +5,11 @@
     "sellerName": "Toys R Us Local",
     "sellerEmail": "contact@toysruslocal.com",
     "price": 49.99,
+    "discount": 10,
     "rating": 4.7,
     "availableQuantity": 75,
     "description": "A timeless set of colorful Lego bricks that encourages creativity and problem-solving. Kids can build anything they imagine, from houses to vehicles.",
-    "pictureURL": "https://i.ibb.co.com/dwWwjSXm/11002-alt1.jpg",
+    "pictureURL": "https://i.ibb.co/dwWwjSXm/11002-alt1.jpg",
     "subCategory": "Building Blocks"
   },
   {
@@ -17,10 +18,11 @@
     "sellerName": "Speedy Toys",
     "sellerEmail": "info@speedytoys.com",
     "price": 69.99,
+    "discount": 15,
     "rating": 4.5,
     "availableQuantity": 40,
     "description": "A fast and durable RC car with all-terrain tires and rechargeable batteries. Perfect for outdoor racing fun.",
-    "pictureURL": "https://i.ibb.co.com/Y4yF7dDp/car.webp",
+    "pictureURL": "https://i.ibb.co/Y4yF7dDp/car.webp",
     "subCategory": "Remote Control"
   },
   {
@@ -29,10 +31,11 @@
     "sellerName": "Cuddle Corner",
     "sellerEmail": "hello@cuddlecorner.com",
     "price": 24.99,
+    "discount": 20,
     "rating": 4.9,
     "availableQuantity": 120,
     "description": "A soft and adorable teddy bear made from premium cotton. Ideal for cuddling and gifting on special occasions.",
-    "pictureURL": "https://i.ibb.co.com/yBsYChkv/d09c448643bf0049458f1a0d847a62ea.jpg",
+    "pictureURL": "https://i.ibb.co/yBsYChkv/d09c448643bf0049458f1a0d847a62ea.jpg",
     "subCategory": "Stuffed Animals"
   },
   {
@@ -41,10 +44,11 @@
     "sellerName": "Doll World",
     "sellerEmail": "sales@dollworld.com",
     "price": 39.99,
+    "discount": 12,
     "rating": 4.6,
     "availableQuantity": 90,
     "description": "This Barbie Dream Doll comes with trendy outfits and accessories. Encourages imaginative storytelling and role play.",
-    "pictureURL": "https://i.ibb.co.com/vxQnNWgc/1144622.webp",
+    "pictureURL": "https://i.ibb.co/vxQnNWgc/1144622.webp",
     "subCategory": "Dolls"
   },
   {
@@ -53,10 +57,11 @@
     "sellerName": "Classic Kids",
     "sellerEmail": "support@classickids.com",
     "price": 59.49,
+    "discount": 8,
     "rating": 4.8,
     "availableQuantity": 60,
     "description": "A premium wooden train set with magnetic connectors and colorful tracks. Promotes creativity and motor skills.",
-    "pictureURL": "https://i.ibb.co.com/kVXNhTTb/650822a28de68345d2636f6a-wooden-train-set-12-pcs-train-toys.jpg",
+    "pictureURL": "https://i.ibb.co/kVXNhTTb/650822a28de68345d2636f6a-wooden-train-set-12-pcs-train-toys.jpg",
     "subCategory": "Wooden Toys"
   },
   {
@@ -65,16 +70,11 @@
     "sellerName": "TechPlay",
     "sellerEmail": "contact@techplay.com",
     "price": 54.99,
+    "discount": 18,
     "rating": 4.4,
     "availableQuantity": 50,
     "description": "A futuristic robot toy with LED lights and sound effects. Can move, talk, and perform programmed actions.",
-    "pictureURL": "https://i.ibb.co.com/Swn5Gp9y/images.jpg",
+    "pictureURL": "https://i.ibb.co/Swn5Gp9y/images.jpg",
     "subCategory": "Action Figures"
   }
 ]
-
-
-
-
-
-

@@ -9,6 +9,7 @@ import LoadingSpinner from "../Pages/LoadingSpinner";
 import Profile from "../Pages/Profile";
 import ErrorPage from "../Pages/ErrorPage";
 import ForgetPassPage from "../Pages/ForgetPassPage";
+import Discount from "../Pages/Discount";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,14 @@ export const router = createBrowserRouter([
       {
         path: 'forgetPassword',
         Component: ForgetPassPage
+      },
+      {
+        path: 'discount',
+        element: <PrivateRoute>
+          <Discount></Discount>
+        </PrivateRoute>,
+         loader: () => fetch("/toys.json"),
+          hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
       }
     ],
 

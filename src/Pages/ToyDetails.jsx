@@ -41,6 +41,7 @@ const ToyDetails = () => {
   }
   return (
     <Container>
+      <title>Toys-world-Details</title>
     <div className="md:flex p-3 gap-10 py-9">
 
       <div className="max-h-[500px]">
