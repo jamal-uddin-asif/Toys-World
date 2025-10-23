@@ -15,7 +15,7 @@ const Home = () => {
       <Container>
         <Slider></Slider>
        
-        <div className="">
+        <div className="bg-white py-7 rounded-2xl">
           <h1 className="text-center py-8 text-5xl font-bold bg-linear-to-r from-purple-200 to-red-950 text-transparent bg-clip-text">HighLights</h1>
           <Marquee>
             {toys.map(toy=> <img className="h-14 mr-30" src={toy.pictureURL} alt="" />)}
@@ -32,7 +32,7 @@ const Home = () => {
         </div>
 
         <div>
-          
+
         </div>
         
       </Container>

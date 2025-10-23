@@ -6,7 +6,7 @@ const Discount = () => {
     const toys = useLoaderData()
     console.log(toys)
     return (
-        <div className='space-y-3 bg-gray-200'>
+        <div className='space-y-3 bg-gray-200 my-3'>
            {
             toys.map(toy=><DiscountCard key={toy.toyId} toy={toy}></DiscountCard>)
            }
