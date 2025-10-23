@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router";
 import Container from "../Components/Container";
 import ToyCard from "../Components/ToyCard";
 import Marquee from "react-fast-marquee";
+import Banner from "../Components/Banner";
 
 const Home = () => {
   const toys = useLoaderData();
@@ -22,6 +23,7 @@ const Home = () => {
           </Marquee>
 
         </div>
+          <Banner></Banner>
         <div className="flex justify-center items-center py-9">
           <h1 className="sm:text-5xl text-3xl font-bold text-purple-800">Popular Toys</h1>
         </div>
@@ -30,6 +32,7 @@ const Home = () => {
             <ToyCard key={toy.toyId} toy={toy}></ToyCard>
           ))}
         </div>
+
 
         <div>
 

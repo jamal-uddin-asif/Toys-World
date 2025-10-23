@@ -38,6 +38,9 @@ const Login = () => {
       })
       .catch((err) => {
         setErr("Invalid Information");
+        if(err.code === 'auth/missing-password'){
+          toast.error('Please give your password')
+        }
         if (err.code === "auth/invalid-credential") {
           toast.error('Opss! your information was wrong');
         }

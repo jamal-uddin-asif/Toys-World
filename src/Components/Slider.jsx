@@ -16,7 +16,7 @@ register();
 const Slider = () => {
     
   return (
-    <div className="py-7">
+    <div className=" py-7">
        
 
       <swiper-container speed="500" loop="true" Navigation='auto'>

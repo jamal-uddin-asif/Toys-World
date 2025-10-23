@@ -28,7 +28,7 @@ const ToyDetails = () => {
     
     // console.log({name, email})
     if(name && email){
-       toast.success('Successful')
+       toast.success('Good Job😊')
       e.target.reset();
 
       return
