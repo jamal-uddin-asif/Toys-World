@@ -9,5 +9,9 @@
  }
 
  li a.active{
-  @apply bg-linear-to-b from-purple-300 to-purple-600 text-purple-800 font-semibold
+  @apply  text-purple-400 pt-2 text-xl font-semibold
+ }
+
+ .headerFont{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
  }

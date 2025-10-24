@@ -23,7 +23,6 @@ const Registration = () => {
     const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log({ name, photo, email, password });
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
@@ -41,22 +40,22 @@ const Registration = () => {
 
     createUser(email, password)
       .then((result) => {
-        toast.success("Registration successful");
+        toast.success("Registration successful, Please SignIn");
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
             signout()
               .then(() => {})
               .catch((err) => {
-                console.log(err);
+                // console.log(err);
               });
           })
           .catch((err) => {
-            console.log(err);
+            // console.log(err);
           });
-        console.log(result);
+        // console.log(result);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         if (err.code === "auth/email-already-in-use") {
           toast.error("Opss! this email already used");
         }
@@ -71,7 +70,7 @@ const Registration = () => {
         toast.success("Signin successful");
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   };
   return (
@@ -86,7 +85,7 @@ const Registration = () => {
             <input
               type="text"
               className="input focus:outline-0  border-0  border-b p-0"
-              placeholder="First name"
+              placeholder="Your Name"
               name="name"
             />
             {/* Photo  */}

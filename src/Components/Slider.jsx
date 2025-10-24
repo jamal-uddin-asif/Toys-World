@@ -20,11 +20,11 @@ const Slider = () => {
        
 
       <swiper-container speed="500" loop="true" Navigation='auto'>
-        <swiper-slide><img className="h-[400px] w-full object-cover" src={toy1} alt="" /></swiper-slide>
-        <swiper-slide><img className="h-[400px] w-full object-cover" src={baby} alt="" /></swiper-slide>
-        <swiper-slide><img className="h-[400px] w-full object-cover" src={toy2} alt="" /></swiper-slide>
-        <swiper-slide><img className="h-[400px] w-full object-cover" src={toy3} alt="" /></swiper-slide>
-        <swiper-slide><img className="h-[400px] w-full object-cover" src={putul} alt="" /></swiper-slide>
+        <swiper-slide><img className="sm:h-[400px] w-full object-cover" src={toy1} alt="" /></swiper-slide>
+        <swiper-slide><img className="sm:h-[400px] w-full object-cover" src={baby} alt="" /></swiper-slide>
+        <swiper-slide><img className="sm:h-[400px] w-full object-cover" src={toy2} alt="" /></swiper-slide>
+        <swiper-slide><img className="sm:h-[400px] w-full object-cover" src={toy3} alt="" /></swiper-slide>
+        <swiper-slide><img className="sm:h-[400px] w-full object-cover" src={putul} alt="" /></swiper-slide>
         ...
       </swiper-container>
       

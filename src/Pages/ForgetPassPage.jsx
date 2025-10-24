@@ -9,19 +9,19 @@ const ForgetPassPage = () => {
   const { resetPassword } = useContext(AuthContext);
 
   const email = location.state;
-  console.log(email);
+  // console.log(email);
 
   const handleResetPass = (e) => {
     e.preventDefault();
-    console.log("reset btn");
-    console.log(email);
+    // console.log("reset btn");
+    // console.log(email);
     resetPassword(email)
       .then(() => {
         toast("Check Your Email");
         window.location.href = "https://mail.google.com/mail/u/0/#inbox"
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   };
 

@@ -4,7 +4,7 @@ import bannerImg from "../assets/Rectangle_7.webp";
 const Banner = () => {
   return (
     <div
-      className={` rounded-2xl overflow-hidden my-5 md:my-10 `}
+      className={` sm:rounded-2xl overflow-hidden my-5 md:my-10 `}
       // style={{backgroundImage: `url(${bannerImg})` }}
     >
       <div className="relative">

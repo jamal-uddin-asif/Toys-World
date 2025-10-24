@@ -11,21 +11,22 @@ const Footer = () => {
           <div className="space-y-3">
             <h3 className="text-2xl "> Others Address</h3>
             <ul>
-              <li>Feni</li>
-              <li>Cumilla</li>
-              <li>Borishal</li>
-              <li>Mirpur</li>
-              <li>Chattagram</li>
-              <li>Shajek</li>
+              <li className="text-yellow-400">Feni</li>
+              <li className="text-yellow-400">Cumilla</li>
+              <li className="text-yellow-400">Borishal</li>
+              <li className="text-yellow-400">Mirpur</li>
+              <li className="text-yellow-400">Chattagram</li>
+              <li className="text-yellow-400">Shajek</li>
             </ul>
           </div>
 
             {/* section 2  */}
           <div>
                 <h3 className="text-2xl mb-3">Useful Links</h3>
-                <p>Home</p>
-                <p>Profile</p>
-                <p>View More</p>
+                <p className="text-yellow-400">Home</p>
+                <p className="text-yellow-400">Profile</p>
+                <p className="text-yellow-400">Discount</p>
+                <p className="text-yellow-400">View More</p>
           </div>
 
             {/* section 3 */}

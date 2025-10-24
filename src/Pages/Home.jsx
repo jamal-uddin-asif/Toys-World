@@ -17,9 +17,14 @@ const Home = () => {
         <Slider></Slider>
        
         <div className="bg-white py-7 rounded-2xl">
-          <h1 className="text-center py-8 text-5xl font-bold bg-linear-to-r from-purple-200 to-red-950 text-transparent bg-clip-text">HighLights</h1>
+          <div className="py-7 text-center space-y-1">
+
+          <h1 className="text-center  text-3xl sm:text-5xl font-bold bg-linear-to-br from-gray-200 to-purple-950 text-transparent bg-clip-text">HighLights</h1>
+          <p className="text-gray-400 text-xl">We have more toys.</p>
+          </div>
+          
           <Marquee>
-            {toys.map(toy=> <img className="h-14 mr-30" src={toy.pictureURL} alt="" />)}
+            {toys.map(toy=> <img className="h-14 mr-15 rounded-full sm:mr-30" src={toy.pictureURL} alt="" />)}
           </Marquee>
 
         </div>
@@ -27,7 +32,7 @@ const Home = () => {
         <div className="flex justify-center items-center py-9">
           <h1 className="sm:text-5xl text-3xl font-bold text-purple-800">Popular Toys</h1>
         </div>
-        <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+        <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:p-0 space-y-2  p-2.5">
           {toys.map((toy) => (
             <ToyCard key={toy.toyId} toy={toy}></ToyCard>
           ))}

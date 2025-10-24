@@ -1,3 +1,4 @@
+import { Star } from "lucide-react";
 import React from "react";
 import { Link } from "react-router";
 
@@ -13,11 +14,11 @@ const ToyCard = ({ toy }) => {
         />
       </div>
       <div className="">
-        <h1 className="text-3xl font-bold py-9 ">{toyName}</h1>
+        <h1 className="text-3xl font-bold py-9 headerFont">{toyName}</h1>
         <div className="flex justify-between items-center bg-gray-300 text-white p-2 rounded-xl">
           <div className="text-amber-800 font-semibold">
             <p className=""> Remining: {availableQuantity}</p>
-            <p>{rating}</p>
+            <p className="flex items-center">{rating} <Star className="h-4 "  color="yellow" ></Star></p>
           </div>
           <p className="text-2xl text-amber-800 font-bold">{price} $</p>
         </div>

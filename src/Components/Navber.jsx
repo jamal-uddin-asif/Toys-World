@@ -9,7 +9,7 @@ const Navber = () => {
   const { user, signout, loading } = useContext(AuthContext);
   // const navigation = useNavigation()
   // console.log(loading)
-  console.log(user);
+  // console.log(user);
   const links = (
     <>
       <li>
@@ -34,12 +34,13 @@ const Navber = () => {
         toast.success("SignOut successful");
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   };
 
   return (
-    <div className="bg-linear-to-l from-pink-950 to-purple-950 text-white">
+    <div className="bg-black/88 text-white">
+      {/* bg-linear-to-l from-pink-950 to-purple-950  */}
       <Container>
         <div className="navbar  ">
           <div className="navbar-start">
@@ -72,20 +73,21 @@ const Navber = () => {
                 {links}
               </ul>
             </div>
-            <a className="btn btn-ghost text-2xl bg-linear-to-r from-purple-300 to-purple-900 text-transparent bg-clip-text">
+            <img className="w-12" src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-toys-black-friday-cyber-monday-flaticons-flat-flat-icons.png" alt="" />
+            <Link to={'/'} className="btn btn-ghost text-2xl bg-linear-to-r from-purple-300 to-purple-900 text-transparent bg-clip-text">
               Toys World
-            </a>
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">{links}</ul>
+            <ul className="menu menu-horizontal px-1 text-yellow-400">{links}</ul>
           </div>
           <div className="navbar-end">
             {loading ? (
               <ClipLoader color="white" />
             ) : user ? (
               <div className="flex relative ">
-                <div className="text-transparent hover:text-white">
-                  <h1 className={`font-semibold absolute -left-4 -top-2  `}>
+                <div className="text-transparent hover:text-yellow-400">
+                  <h1 className={`font-semibold absolute -left-4 -top-4   `}>
                     {user?.displayName}
                   </h1>
                   <Link to={"/profile"}>
@@ -104,7 +106,7 @@ const Navber = () => {
                 </button>
               </div>
             ) : (
-              <Link to={"/signin"} className="btn">
+              <Link to={"/signin"} className="btn text-yellow-600 ">
                 Sign in
               </Link>
             )}

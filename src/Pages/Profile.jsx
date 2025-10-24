@@ -8,7 +8,7 @@ const Profile = () => {
   const createAt = user?.metadata.creationTime;
   const userCreateAt = new Date(createAt).toLocaleDateString();
 
-  console.log(user);
+  // console.log(user);
   const handleUpdateProfile = (e) => {
     e.preventDefault();
     const displayName = e.target.name.value;
@@ -33,12 +33,13 @@ const Profile = () => {
       })
       .catch((err) => {
         setUser(user);
-        console.log(err);
+        // console.log(err);
         toast.error(err.code);
       });
   };
   return (
     <div>
+      <title>Toys-world-Profile</title>
       <Container
         className={"md:flex p-4 justify-center items-center min-h-[80vh] "}
       >
