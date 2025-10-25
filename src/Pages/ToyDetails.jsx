@@ -40,6 +40,7 @@ const ToyDetails = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <Container>
       <title>Toys-world-Details</title>

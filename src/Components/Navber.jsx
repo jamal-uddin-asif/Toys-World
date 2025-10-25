@@ -39,7 +39,7 @@ const Navber = () => {
   };
 
   return (
-    <div className="bg-black/88 text-white">
+    <div className="bg-cyan-950 text-white ">
       {/* bg-linear-to-l from-pink-950 to-purple-950  */}
       <Container>
         <div className="navbar  ">

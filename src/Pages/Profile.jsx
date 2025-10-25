@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext,  } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import Container from "../Components/Container";
 import { toast } from "react-toastify";
+
 
 const Profile = () => {
   const { user, updateUserProfile, setUser } = useContext(AuthContext);
@@ -16,12 +17,12 @@ const Profile = () => {
 
     const update = { displayName, photoURL };
 
-    if(!displayName){
-      toast.error('Please give your name')
+    if (!displayName) {
+      toast.error("Please give your name");
       return;
     }
-    if(!photoURL){
-      toast.error('Please give your photoURL')
+    if (!photoURL) {
+      toast.error("Please give your photoURL");
       return;
     }
 
@@ -37,13 +38,18 @@ const Profile = () => {
         toast.error(err.code);
       });
   };
+
+ 
   return (
     <div>
       <title>Toys-world-Profile</title>
       <Container
         className={"md:flex p-4 justify-center items-center min-h-[80vh] "}
       >
-        <div className="py-7 md:px-17 rounded-2xl p-4 bg-linear-to-r from-amber-100 to-amber-200">
+        <div
+          
+          className="py-7 md:px-17 rounded-2xl p-4 bg-linear-to-r from-amber-100 to-amber-200"
+        >
           <div>
             {user?.photoURL !== null ? (
               <img
@@ -73,7 +79,7 @@ const Profile = () => {
             <h1>New feature coming soon</h1>
           </div>
         </div>
-        <div className="flex-1">
+        <div  className="flex-1">
           <form onSubmit={handleUpdateProfile} className="card-body">
             <h1 className="text-2xl font-semibold text-purple-800">
               Update Your profile
