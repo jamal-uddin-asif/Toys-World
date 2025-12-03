@@ -32,7 +32,7 @@ const Profile = () => {
       >
         <div
           
-          className="py-7   md:py-25 md:px-17 rounded-2xl p-4 bg-cyan-900 shadow-2xl "
+          className="py-7  flex-2 md:py-25 md:px-17 rounded-2xl p-4 bg-cyan-900 shadow-2xl "
         >
           <div className="mx-auto">
             {user?.photoURL !== null ? (
@@ -79,7 +79,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <div  className="flex-1">
+        <div  className="flex-3">
             <Outlet></Outlet>
         </div>
       </Container>

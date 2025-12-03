@@ -6,13 +6,14 @@ import ToyCard from "../Components/ToyCard";
 import Marquee from "react-fast-marquee";
 import Banner from "../Components/Banner";
 import Toys from "./Toys";
+import Reviews from "../Components/Reviews";
 
 const Home = () => {
   const toys = useLoaderData();
   // console.log(toys);
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 ">
       <title>Toys-world-Home</title>
       <Container>
         <Slider></Slider>
@@ -20,12 +21,12 @@ const Home = () => {
      
 
 
-        {/* <div className="bg-white py-7 rounded-2xl">
+        <div className="bg-white py-7 rounded-2xl my-15 md:my-20">
           <div className="py-7 text-center space-y-1">
-            <h1 className="text-center  text-3xl sm:text-5xl font-bold bg-linear-to-br from-gray-200 to-purple-950 text-transparent bg-clip-text">
+            <h1 className="text-center  text-3xl  font-bold ">
               HighLights
             </h1>
-            <p className="text-gray-400 text-xl">We have more toys.</p>
+            <p className="text-gray-400 text-xl">“Explore new arrivals & best-selling collections.</p>
           </div>
 
           <Marquee>
@@ -37,8 +38,11 @@ const Home = () => {
               />
             ))}
           </Marquee>
-        </div> */}
+        </div>
+
         <Banner></Banner>
+
+        <Reviews></Reviews>
 
         <div></div>
       </Container>
