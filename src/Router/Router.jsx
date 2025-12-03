@@ -6,10 +6,13 @@ import Login from "../Pages/Login";
 import Registration from "../Pages/Registration";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import LoadingSpinner from "../Pages/LoadingSpinner";
-import Profile from "../Pages/Profile";
+
 import ErrorPage from "../Pages/ErrorPage";
 import ForgetPassPage from "../Pages/ForgetPassPage";
 import Discount from "../Pages/Discount";
+import Profile from "../Layouts/Profile";
+import UpdateProfile from "../Components/UpdateProfile";
+import AccountDetails from "../Components/AccountDetails";
 
 export const router = createBrowserRouter([
   {
@@ -41,33 +44,49 @@ export const router = createBrowserRouter([
         path: "registration",
         Component: Registration,
       },
+      // {
+      //   path: "profile",
+      //   element: (
+      //     <PrivateRoute>
+      //       <Profile></Profile>
+      //     </PrivateRoute>
+      //   ),
+      // },
       {
-        path: "profile",
-        element: (
-          <PrivateRoute>
-            <Profile></Profile>
-          </PrivateRoute>
-        ),
+        path: "forgetPassword",
+        Component: ForgetPassPage,
       },
       {
-        path: 'forgetPassword',
-        Component: ForgetPassPage
+        path: "discount",
+        Component: Discount,
+        loader: () => fetch("/toys.json"),
+        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
       },
-      {
-        path: 'discount',
-        element: <PrivateRoute>
-          <Discount></Discount>
-        </PrivateRoute>,
-         loader: () => fetch("/toys.json"),
-          hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
-      }
     ],
+  },
+  {
+    path: "profile",
+    element: (
+      <PrivateRoute>
+        <Profile></Profile>
+      </PrivateRoute>
+    ),
+    children:[
+      {
+        index: true,
+        Component: AccountDetails
 
-    
+      }
+      ,
+      {
+        path: '/profile/update_profile',
+        Component: UpdateProfile
+      }
+    ]
   },
 
   {
-    path: '/*',
-    Component: ErrorPage
-  }
+    path: "/*",
+    Component: ErrorPage,
+  },
 ]);

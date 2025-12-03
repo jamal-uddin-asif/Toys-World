@@ -68,13 +68,13 @@ const Navber = () => {
               </div>
               <ul
                 tabIndex="-1"
-                className="menu z-10 text-black  menu-sm dropdown-content bg-base-100 rounded-box  mt-3 w-52 p-2 shadow"
+                className="menu bg-cyan-800 z-10 text-black  menu-sm dropdown-content bg-base-100 rounded-box  mt-3 w-52 p-2 shadow"
               >
                 {links}
               </ul>
             </div>
             <img className="w-12" src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-toys-black-friday-cyber-monday-flaticons-flat-flat-icons.png" alt="" />
-            <Link to={'/'} className="btn btn-ghost text-2xl bg-linear-to-r from-purple-300 to-purple-900 text-transparent bg-clip-text">
+            <Link to={'/'} className="btn hidden md:block btn-ghost text-2xl bg-linear-to-r from-purple-300 to-purple-900 text-transparent bg-clip-text">
               Toys World
             </Link>
           </div>
@@ -100,7 +100,7 @@ const Navber = () => {
                 </div>
                 <button
                   onClick={handleSignOut}
-                  className="bg-gradient-to-r from-purple-500 to-purple-900 p-2 rounded-xl font-semibold"
+                  className="bg-amber-400 p-2 rounded-sm text-black  font-semibold"
                 >
                   Logout
                 </button>

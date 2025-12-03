@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
@@ -16,6 +16,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
 
   const from = location.state || "/";
+
 
   const handleSignIn = (e) => {
     e.preventDefault();

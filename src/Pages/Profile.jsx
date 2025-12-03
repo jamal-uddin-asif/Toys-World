@@ -1,115 +1,116 @@
-import React, { useContext,  } from "react";
-import { AuthContext } from "../Context/AuthContext";
-import Container from "../Components/Container";
-import { toast } from "react-toastify";
+// import React, { useContext,  } from "react";
+// import { AuthContext } from "../Context/AuthContext";
+// import Container from "../Components/Container";
+// import { toast } from "react-toastify";
 
 
-const Profile = () => {
-  const { user, updateUserProfile, setUser } = useContext(AuthContext);
-  const createAt = user?.metadata.creationTime;
-  const userCreateAt = new Date(createAt).toLocaleDateString();
+// const Profile = () => {
+//   const { user, updateUserProfile, setUser } = useContext(AuthContext);
+//   const createAt = user?.metadata.creationTime;
+//   const userCreateAt = new Date(createAt).toLocaleDateString();
 
-  // console.log(user);
-  const handleUpdateProfile = (e) => {
-    e.preventDefault();
-    const displayName = e.target.name.value;
-    const photoURL = e.target.photo.value;
+//   // console.log(user);
+//   const handleUpdateProfile = (e) => {
+//     e.preventDefault();
+//     const displayName = e.target.name.value;
+//     const photoURL = e.target.photo.value;
 
-    const update = { displayName, photoURL };
+//     const update = { displayName, photoURL };
 
-    if (!displayName) {
-      toast.error("Please give your name");
-      return;
-    }
-    if (!photoURL) {
-      toast.error("Please give your photoURL");
-      return;
-    }
+//     if (!displayName) {
+//       toast.error("Please give your name");
+//       return;
+//     }
+//     if (!photoURL) {
+//       toast.error("Please give your photoURL");
+//       return;
+//     }
 
-    updateUserProfile(update)
-      .then(() => {
-        setUser({ ...user, update });
-        toast.success("Profile updated");
-        e.target.reset();
-      })
-      .catch((err) => {
-        setUser(user);
-        // console.log(err);
-        toast.error(err.code);
-      });
-  };
+//     updateUserProfile(update)
+//       .then(() => {
+//         setUser({ ...user, update });
+//         toast.success("Profile updated");
+//         e.target.reset();
+//       })
+//       .catch((err) => {
+//         setUser(user);
+//         // console.log(err);
+//         toast.error(err.code);
+//       });
+//   };
 
  
-  return (
-    <div>
-      <title>Toys-world-Profile</title>
-      <Container
-        className={"md:flex p-4 justify-center items-center min-h-[80vh] "}
-      >
-        <div
+//   return (
+//     <div>
+//       <title>Toys-world-Profile</title>
+//       <Container
+//         className={"md:flex p-4 justify-center items-center min-h-[80vh] "}
+//       >
+//         <div
           
-          className="py-7 md:px-17 rounded-2xl p-4 bg-linear-to-r from-amber-100 to-amber-200"
-        >
-          <div>
-            {user?.photoURL !== null ? (
-              <img
-                className="rounded-full w-40 h-40"
-                src={user?.photoURL}
-                alt=""
-              />
-            ) : (
-              <img
-                width="70"
-                height="70"
-                src="https://img.icons8.com/ios-filled/50/user.png"
-                alt="user"
-              />
-            )}
-          </div>
-          <h1 className="text-2xl font-semibold ">
-            Your Name: {user?.displayName}
-          </h1>
-          <hr />
-          <div className="text-gray-600 py-4 ">
-            <p className="text-xl">Your email: {user?.email}</p>
-            <p>Your account create at: {userCreateAt}</p>
-          </div>
-          <hr />
-          <div className="text-center py-4 text-gray-400">
-            <h1>New feature coming soon</h1>
-          </div>
-        </div>
-        <div  className="flex-1">
-          <form onSubmit={handleUpdateProfile} className="card-body">
-            <h1 className="text-2xl font-semibold text-purple-800">
-              Update Your profile
-            </h1>
-            <fieldset className="fieldset">
-              {/* Name  */}
-              <label className="label">Name</label>
-              <input
-                type="text"
-                className="input focus:outline-0  border-0  border-b-1 p-0"
-                placeholder="First name"
-                name="name"
-              />
-              {/* Photo  */}
-              <label className="label">Photo</label>
-              <input
-                type="text"
-                className="input border-0  focus:outline-0  border-b p-0"
-                placeholder="Photo URL"
-                name="photo"
-              />
-            </fieldset>
-            <button className="text-left btn bg-purple-800 text-white">
-              Save change
-            </button>
-          </form>
-        </div>
-      </Container>
-    </div>
-  );
-};
+//           className="py-7 md:py-25 md:px-17 rounded-2xl p-4 bg-cyan-900 shadow-2xl "
+//         >
+//           <div className="mx-auto">
+//             {user?.photoURL !== null ? (
+//               <img
+//                 className="rounded-full mx-auto w-40 h-40"
+//                 src={user?.photoURL}
+//                 alt=""
+//               />
+//             ) : (
+//               <img
+//               className="mx-auto"
+//                 width="70"
+//                 height="70"
+//                 src="https://img.icons8.com/ios-filled/50/user.png"
+//                 alt="user"
+//               />
+//             )}
+//           </div>
+//           <h1 className="text-2xl my-2 text-white text-center font-semibold ">
+//           {user?.displayName}
+//           </h1>
+//           <hr />
+//           <div className="text-white py-4 ">
+//             <p className="text-xl">Your email: {user?.email}</p>
+//             <p>Your account create at: {userCreateAt}</p>
+//           </div>
+//           <hr />
+//           <div className="text-center py-4 text-gray-400">
+           
+//           </div>
+//         </div>
+//         <div  className="flex-1">
+//           <form onSubmit={handleUpdateProfile} className="card-body">
+//             <h1 className="text-2xl font-semibold text-purple-800">
+//               Update Your profile
+//             </h1>
+//             <fieldset className="fieldset">
+//               {/* Name  */}
+//               <label className="label">Name</label>
+//               <input
+//                 type="text"
+//                 className="input focus:outline-0  border-0  border-b-1 p-0"
+//                 placeholder="First name"
+//                 name="name"
+//               />
+//               {/* Photo  */}
+//               <label className="label">Photo</label>
+//               <input
+//                 type="text"
+//                 className="input border-0  focus:outline-0  border-b p-0"
+//                 placeholder="Photo URL"
+//                 name="photo"
+//               />
+//             </fieldset>
+//             <button className="text-left btn bg-purple-800 text-white">
+//               Save change
+//             </button>
+//           </form>
+//         </div>
+//       </Container>
+//     </div>
+//   );
+// };
 
-export default Profile;
+// export default Profile;

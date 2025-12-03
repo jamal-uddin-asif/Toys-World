@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useLoaderData, useParams } from "react-router";
 import Container from "../Components/Container";
 import { toast } from "react-toastify";
+import ToyBookNow from "./ToyBookNow";
 
 const ToyDetails = () => {
   const { id } = useParams();
@@ -21,21 +22,6 @@ const ToyDetails = () => {
   } = clickedToy;
   // console.log(clickedToy);
 
-  const handleTryNow = (e) => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-
-    // .log({name, email})
-    if (name && email) {
-      toast.success("Good Job😊");
-      e.target.reset();
-
-      return;
-    } else {
-      toast.error("Fill the form");
-    }
-  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -44,7 +30,7 @@ const ToyDetails = () => {
   return (
     <Container>
       <title>Toys-world-Details</title>
-      <div className="md:flex p-3 gap-10 py-9">
+      <div data-aos='fade-left' className="md:flex p-3 gap-10 py-9">
         <div className="max-h-[500px]">
           <img
             className="lg:h-[450px] md:h-[350px] mx-auto max-h-[450px]"
@@ -53,8 +39,8 @@ const ToyDetails = () => {
           />
         </div>
 
-        <div className="flex-1">
-          <div className="flex  text-3xl font-bold space-x-2">
+        <div data-aos='fade-right' className="flex-1 bg-white shadow-xl p-4">
+          <div className="flex justify-between text-2xl  md:text-3xl font-bold space-x-2">
             <h1>{toyName}</h1>
             <p className="text-red-700">{price} $</p>
           </div>
@@ -80,37 +66,11 @@ const ToyDetails = () => {
             <p>Subcategory: {subCategory}</p>
             <p>Description: {description}</p>
           </div>
+        <ToyBookNow></ToyBookNow>
         </div>
+
       </div>
 
-      {/* form  */}
-      <div className="md:flex justify-center items-center ">
-        <h1 className="p-2 flex-1 md:text-end text-purple-800 font-bold md:text-5xl text-4xl">
-          Try Now Toy
-        </h1>
-        <form onSubmit={handleTryNow} className="card-body">
-          <fieldset className="fieldset">
-            {/* Name  */}
-            <label className="label">Name</label>
-            <input
-              type="text"
-              className="input focus:outline-0  border-0  border-b-1 p-0"
-              placeholder="Name"
-              name="name"
-            />
-
-            {/* email  */}
-            <label className="label">Email</label>
-            <input
-              type="email"
-              className="input border-0 input focus:outline-0  border-b-1 p-0"
-              placeholder="Email"
-              name="email"
-            />
-          </fieldset>
-          <button className="btn btn-secondary text-black mt-4">Try Now</button>
-        </form>
-      </div>
     </Container>
   );
 };
