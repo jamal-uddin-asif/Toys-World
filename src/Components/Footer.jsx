@@ -4,7 +4,7 @@ import { Facebook, Instagram, Twitter } from "lucide-react";
 
 const Footer = () => {
   return (
-    <div className="bg-linear-to-b from-gray-700 to-black text-white mt-5">
+    <div className="bg-linear-to-b from-gray-700 to-black text-white ">
       <Container>
         <div className="md:flex px-4 lg:px-0 space-y-4 justify-between py-7">
           {/* sectinon 1  */}

@@ -13,6 +13,9 @@ import Discount from "../Pages/Discount";
 import Profile from "../Layouts/Profile";
 import UpdateProfile from "../Components/UpdateProfile";
 import AccountDetails from "../Components/AccountDetails";
+import AboutUs from "../Pages/AboutUs";
+import ContactUs from "../Pages/ContactUs";
+import AllToysPage from "../Pages/AllToysPage";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +26,12 @@ export const router = createBrowserRouter([
         index: true,
         Component: Home,
         loader: () => fetch("/toys.json"),
+        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
+      },
+      {
+        path:'toys',
+        Component: AllToysPage,
+        loader: () => fetch("/alltoys.json"),
         hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
       },
       {
@@ -44,14 +53,14 @@ export const router = createBrowserRouter([
         path: "registration",
         Component: Registration,
       },
-      // {
-      //   path: "profile",
-      //   element: (
-      //     <PrivateRoute>
-      //       <Profile></Profile>
-      //     </PrivateRoute>
-      //   ),
-      // },
+      {
+        path: 'about_us',
+        Component: AboutUs
+      },
+      {
+        path: 'contact_us',
+        Component: ContactUs
+      },
       {
         path: "forgetPassword",
         Component: ForgetPassPage,

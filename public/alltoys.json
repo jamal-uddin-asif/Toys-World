@@ -14,7 +14,7 @@
   },
   {
     "toyId": 2,
-    "toyName": "Remote Control Car",
+    "toyName": "Remote  Car",
     "sellerName": "Speedy Toys",
     "sellerEmail": "info@speedytoys.com",
     "price": 69.99,
@@ -66,7 +66,7 @@
   },
   {
     "toyId": 6,
-    "toyName": "Robot Action Figure",
+    "toyName": "Robot Action ",
     "sellerName": "TechPlay",
     "sellerEmail": "contact@techplay.com",
     "price": 54.99,
@@ -79,7 +79,7 @@
   },
     {
     "toyId": 7,
-    "toyName": "Magnetic Building Tiles",
+    "toyName": "Magnetic Building ",
     "sellerName": "Magic Blocks",
     "sellerEmail": "contact@magicblocks.com",
     "price": 45.99,
@@ -102,6 +102,59 @@
     "description": "A complete pretend-play kitchen set with utensils, mini stove, and food items. Great for role play and imaginative cooking fun.",
     "pictureURL": "https://i.ibb.co.com/YTXq0HqK/Kids-Kitchen-Set.webp",
     "subCategory": "Pretend Play"
+  },
+  {
+    "toyId": 9,
+    "toyName": "Puzzle World Map",
+    "sellerName": "EduToys",
+    "sellerEmail": "info@edutoys.com",
+    "price": 19.99,
+    "discount": 5,
+    "rating": 4.6,
+    "availableQuantity": 150,
+    "description": "A vibrant 100-piece world map puzzle that helps children learn geography in a fun and engaging way.",
+    "pictureURL": "https://i.ibb.co.com/prvHM2fp/Puzzle-World-Map.webp",
+    "subCategory": "Puzzles"
+  },
+  {
+    "toyId": 10,
+    "toyName": "Spider Hero Mask",
+    "sellerName": "Hero Zone",
+    "sellerEmail": "sales@herozone.com",
+    "price": 22.49,
+    "discount": 12,
+    "rating": 4.3,
+    "availableQuantity": 70,
+    "description": "A high-quality superhero mask with adjustable straps. Perfect for costume parties and imaginative play.",
+    "pictureURL": "https://i.ibb.co.com/jvQc8mf2/Spider-Hero-Mask.webp",
+    "subCategory": "Action Figures"
+  },
+  {
+    "toyId": 11,
+    "toyName": "Musical Keyboard",
+    "sellerName": "SoundPlay",
+    "sellerEmail": "hello@soundplay.com",
+    "price": 42.99,
+    "discount": 20,
+    "rating": 4.7,
+    "availableQuantity": 55,
+    "description": "A small musical keyboard with multiple sounds, demo songs, and learning modes. Encourages musical creativity.",
+    "pictureURL": "https://i.ibb.co.com/mFr6yNB2/Musical-Keyboard.jpg",
+    "subCategory": "Musical Toys"
+  },
+  {
+    "toyId": 12,
+    "toyName": "Baby Cube",
+    "sellerName": "Smart Baby",
+    "sellerEmail": "care@smartbaby.com",
+    "price": 27.99,
+    "discount": 10,
+    "rating": 4.8,
+    "availableQuantity": 95,
+    "description": "A soft learning cube with numbers, shapes, sounds, and textures. Ideal for early development and sensory play.",
+    "pictureURL": "https://i.ibb.co.com/WWRjL8Br/Baby-Cube.jpg",
+    "subCategory": "Educational Toys"
   }
- 
 ]
+
+

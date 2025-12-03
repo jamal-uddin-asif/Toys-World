@@ -16,6 +16,9 @@ const Navber = () => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
           <li>
+            <NavLink to={"/toys"}>Toys</NavLink>
+          </li>
+          <li>
             <NavLink to={"/discount"}>Discount</NavLink>
           </li>
       {user && (
@@ -25,6 +28,12 @@ const Navber = () => {
           </li>
         </>
       )}
+       <li>
+            <NavLink to={"/about_us"}>About Us</NavLink>
+          </li>
+       <li>
+            <NavLink to={"/contact_us"}>Contact Us</NavLink>
+          </li>
     </>
   );
 
