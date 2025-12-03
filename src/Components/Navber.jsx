@@ -115,7 +115,7 @@ const Navber = () => {
                 </button>
               </div>
             ) : (
-              <Link to={"/signin"} className="btn text-yellow-600 ">
+              <Link to={"/signin"} className="btn bg-amber-300 ">
                 Sign in
               </Link>
             )}

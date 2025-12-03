@@ -7,6 +7,7 @@ import ToyBookNow from "./ToyBookNow";
 const ToyDetails = () => {
   const { id } = useParams();
   const toys = useLoaderData();
+
   const clickedToy = toys.find((toy) => toy.toyId === Number(id));
   const {
     toyId,
@@ -20,7 +21,7 @@ const ToyDetails = () => {
     sellerEmail,
     description,
   } = clickedToy;
-  // console.log(clickedToy);
+  console.log(clickedToy);
 
 
   useEffect(() => {
@@ -28,21 +29,23 @@ const ToyDetails = () => {
   }, []);
 
   return (
+    <div className="">
+
     <Container>
       <title>Toys-world-Details</title>
-      <div data-aos='fade-left' className="md:flex p-3 gap-10 py-9">
-        <div className="max-h-[500px]">
+      <div className="md:flex  p-3 gap-10 py-9 ">
+        <div className="max-h-[500px] flex-1">
           <img
             className="lg:h-[450px] md:h-[350px] mx-auto max-h-[450px]"
             src={pictureURL}
             alt=""
-          />
+            />
         </div>
 
-        <div data-aos='fade-right' className="flex-1 bg-white shadow-xl p-4">
+        <div  className="flex-1 bg-cyan-950 text-white rounded-2xl shadow-xl p-4">
           <div className="flex justify-between text-2xl  md:text-3xl font-bold space-x-2">
             <h1>{toyName}</h1>
-            <p className="text-red-700">{price} $</p>
+            <p className="">{price} $</p>
           </div>
           {/* devider  */}
           <div className="border border-gray-200 w-full my-4"></div>
@@ -72,6 +75,7 @@ const ToyDetails = () => {
       </div>
 
     </Container>
+            </div>
   );
 };
 

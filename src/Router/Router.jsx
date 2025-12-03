@@ -36,13 +36,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "toy/:id",
-        element: (
-          <PrivateRoute>
-            <ToyDetails></ToyDetails>
-          </PrivateRoute>
-        ),
-        // Component: ToyDetails,
-        loader: () => fetch("/toys.json"),
+        Component: ToyDetails,
+        loader: () => fetch("/alltoys.json"),
         hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
       },
       {
@@ -68,7 +63,7 @@ export const router = createBrowserRouter([
       {
         path: "discount",
         Component: Discount,
-        loader: () => fetch("/toys.json"),
+        loader: () => fetch("/alltoys.json"),
         hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
       },
     ],

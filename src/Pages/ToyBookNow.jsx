@@ -24,7 +24,7 @@ const ToyBookNow = () => {
       <div className="max-w-sm ">
         <form onSubmit={handleTryNow} className="card-body">
           <fieldset className="fieldset">
-        <h1 className="p-2 flex-1 md:text-end text-purple-800 font-bold md:text-5xl text-4xl">
+        <h1 className="p-2 flex-1 text-2xl font-bold text-left">
           Book Now
         </h1>
             {/* Name  */}
@@ -45,7 +45,7 @@ const ToyBookNow = () => {
               name="email"
             />
           </fieldset>
-          <button className="btn btn-secondary text-black mt-4">Try Now</button>
+          <button className="btn bg-amber-300 btn-outline text-black mt-4">Book now</button>
         </form>
       </div>
     </div>

@@ -16,9 +16,9 @@ const AboutUs = () => {
           ></Heading>
           <Container>
 
-        <div className="md:flex justify-between ">
+        <div className="md:flex p-2  justify-between ">
           <div className="flex-3">
-            <h1 className="text-5xl font-bold border-b pb-3">
+            <h1 className="text-3xl md:text-5xl font-bold border-b pb-3">
               <span className="">About</span> Us
             </h1>
             <div className="md:p-4 p-2 text-blue-900">

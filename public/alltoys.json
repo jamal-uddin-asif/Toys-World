@@ -1,7 +1,7 @@
 [
   {
     "toyId": 1,
-    "toyName": "Lego Classic Bricks",
+    "toyName": "Classic Bricks",
     "sellerName": "Toys R Us Local",
     "sellerEmail": "contact@toysruslocal.com",
     "price": 49.99,
@@ -27,7 +27,7 @@
   },
   {
     "toyId": 3,
-    "toyName": "Stuffed Teddy Bear",
+    "toyName": "Teddy Bear",
     "sellerName": "Cuddle Corner",
     "sellerEmail": "hello@cuddlecorner.com",
     "price": 24.99,

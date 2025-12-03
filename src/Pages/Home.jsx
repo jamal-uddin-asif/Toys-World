@@ -32,7 +32,7 @@ const Home = () => {
           <Marquee>
             {toys.map((toy) => (
               <img
-                className="h-14 mr-15 rounded-full sm:mr-30"
+                className="h-14 md:h-30 mr-15  sm:mr-30"
                 src={toy.pictureURL}
                 alt=""
               />
