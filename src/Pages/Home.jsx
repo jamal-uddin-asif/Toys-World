@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "../Components/Slider";
 import { useLoaderData } from "react-router";
 import Container from "../Components/Container";
@@ -11,7 +11,9 @@ import Reviews from "../Components/Reviews";
 const Home = () => {
   const toys = useLoaderData();
   // console.log(toys);
-
+     useEffect(()=>{
+           window.scrollTo(0, 0);
+      },[])
   return (
     <div className="bg-gray-100 ">
       <title>Toys-world-Home</title>

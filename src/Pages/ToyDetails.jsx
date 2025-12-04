@@ -34,9 +34,9 @@ const ToyDetails = () => {
     <Container>
       <title>Toys-world-Details</title>
       <div className="md:flex  p-3 gap-10 py-9 ">
-        <div className="max-h-[500px] flex-1">
+        <div className="max-h-[500px] flex-1  ">
           <img
-            className="lg:h-[450px] md:h-[350px] mx-auto max-h-[450px]"
+            className="lg:h-[450px] rounded-2xl  md:h-[350px] mx-auto max-h-[450px]"
             src={pictureURL}
             alt=""
             />

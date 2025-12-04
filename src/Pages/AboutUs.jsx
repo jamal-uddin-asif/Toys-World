@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "../Components/Container";
 import Heading from "../Components/Shard/Heading";
 import aboutUsImg from "../assets/aboutUs.jpg";
@@ -6,6 +6,9 @@ import { useNavigate } from "react-router";
 
 const AboutUs = () => {
     const navigate = useNavigate()
+       useEffect(()=>{
+             window.scrollTo(0, 0);
+        },[])
   return (
     <div>
         <Heading

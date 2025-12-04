@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "../Components/Container";
 import Heading from "../Components/Shard/Heading";
 import { MdEmail, MdHomeWork } from "react-icons/md";
@@ -15,11 +15,15 @@ const ContactUs = () => {
 
     console.log({ name, email, message });
     if (!name || !email || !message) {
-      return toast.error("Your message not completed");
+      return toast.error("Your message is not completed");
     } else {
       toast.success("Thanks for contact");
     }
   };
+
+     useEffect(()=>{
+           window.scrollTo(0, 0);
+      },[])
   return (
     <div className="py-5">
       <Heading

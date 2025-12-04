@@ -5,7 +5,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <div className="bg-linear-to-b from-gray-700 to-black text-white ">
+    <div className="bg-cyan-950 text-white ">
       <Container>
         <div className="md:flex px-4 lg:px-0 space-y-4 justify-between py-7">
           {/* section 1  */}

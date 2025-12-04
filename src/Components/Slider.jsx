@@ -1,6 +1,6 @@
 import React from "react";
 import Swiper from "swiper";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 import baby from "../assets/baby.jpg";
 import putul from "../assets/putul.jpg";
@@ -14,7 +14,16 @@ register();
 const Slider = () => {
   return (
     <div className=" py-7">
-      <swiper-container speed="500" loop="true" Navigation="auto">
+      <swiper-container 
+      speed="500"
+      autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+      navigation={true}
+       modules={[Pagination, Navigation, Autoplay]}
+       loop="true" 
+       Navigation="auto">
         <swiper-slide>
           <SliderContent
             toyImg={baby}

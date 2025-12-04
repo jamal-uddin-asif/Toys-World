@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import Container from "../Components/Container";
 import { Link, Outlet } from "react-router";
@@ -15,6 +15,9 @@ const Profile = () => {
   const userCreateAt = new Date(createAt).toLocaleDateString();
 
   // console.log(user);
+     useEffect(()=>{
+           window.scrollTo(0, 0);
+      },[])
 
   const handleSignOut = () => {
     signout().then(() => {
@@ -23,7 +26,10 @@ const Profile = () => {
   };
   return (
     <div>
+      <div className="sticky top-0">
+        
       <Navber></Navber>
+      </div>
       <title>Toys-world-Profile</title>
       <Container
         className={

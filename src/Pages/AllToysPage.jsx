@@ -4,6 +4,7 @@ import Container from '../Components/Container';
 import ToyCard from '../Components/ToyCard';
 import bannerImg from "../assets/Map.webp";
 import toy from "../assets/7032082_40705 (1).jpg";
+import { FaSearch } from 'react-icons/fa';
 
 
 const AllToysPage = () => {
@@ -14,7 +15,7 @@ const AllToysPage = () => {
 
 
     useEffect(()=>{
-        const text = searchText.toLocaleLowerCase()
+        const text = searchText.trim().toLocaleLowerCase()
         if(searchText){
             const filtered = allToys.filter(toy=> toy.toyName.toLowerCase().includes(text))
             setAlltoys(filtered)
@@ -22,7 +23,7 @@ const AllToysPage = () => {
         }else{
             setAlltoys(allToysInitila)
         }
-    },[searchText])
+    },[searchText, allToys, allToysInitila])
 
     useEffect(()=>{
         const copyToyArray = [...allToys]
@@ -36,6 +37,9 @@ const AllToysPage = () => {
         }
     },[sortText, allToys])
    
+       useEffect(()=>{
+             window.scrollTo(0, 0);
+        },[])
     return (
         <Container>
         <div className='px-2  pb-8'>   
@@ -58,7 +62,7 @@ const AllToysPage = () => {
     </div>
             <div className='md:grid grid-cols-12 gap-4'>
                 <div className='col-span-3    h-screen md:sticky top-20 shadow-2xl p-2 md:p-4'>
-                    <h1 className='text-2xl font-semibold'>Find Your toys</h1>
+                    <h1 className='text-2xl font-semibold flex items-center gap-2'><FaSearch /> Find Your toys</h1>
                     <div className='py-2'>
                         <label className='label'>Search </label>
                         <input onChange={(e)=> setSearchText(e.target.value)} className='input focus:outline-0 ' placeholder='Search toys ' type="text" />
@@ -76,7 +80,7 @@ const AllToysPage = () => {
                     </div>
                 </div>  
             <div className='grid col-span-9  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
-                {allToys.map(toy=><ToyCard toy={toy}></ToyCard>)}
+                {allToys.length === 0 ? <div className='text-4xl flex justify-center items-center col-span-full font-bold text-amber-400'>Toy Not Found</div>: allToys.map(toy=><ToyCard toy={toy}></ToyCard>)}
             </div>
             </div>
         </div>
