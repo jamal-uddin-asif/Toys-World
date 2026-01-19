@@ -3,6 +3,7 @@ import Container from "../Components/Container";
 import Heading from "../Components/Shard/Heading";
 import aboutUsImg from "../assets/aboutUs.jpg";
 import { useNavigate } from "react-router";
+import SectionTitle from "../Components/Shard/SectionTitle";
 
 const AboutUs = () => {
     const navigate = useNavigate()
@@ -11,12 +12,9 @@ const AboutUs = () => {
         },[])
   return (
     <div>
-        <Heading
-          heading={"Who We Are"}
-          sub_heading={
-              "A small dream that grew into a world full of toys and endless smiles."
-          }
-          ></Heading>
+      <SectionTitle className={'py-20'} title={'"Who We Are"'} sub_title={' "A small dream that grew into a world full of toys and endless smiles."'}/>
+    
+
           <Container>
 
         <div className="md:flex p-2  justify-between ">

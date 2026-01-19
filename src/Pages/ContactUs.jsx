@@ -5,6 +5,7 @@ import { MdEmail, MdHomeWork } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router";
 import { toast } from "react-toastify";
+import SectionTitle from "../Components/Shard/SectionTitle";
 
 const ContactUs = () => {
   const handleSubmit = (e) => {
@@ -25,13 +26,10 @@ const ContactUs = () => {
            window.scrollTo(0, 0);
       },[])
   return (
-    <div className="py-5">
-      <Heading
-        heading={"Get in Touch With Us"}
-        sub_heading={
-          "We’re here to help with any questions, feedback, or support you need."
-        }
-      ></Heading>
+    <div className="">
+  
+
+     <SectionTitle className={'py-20'} title={'Get in Touch With Us'} sub_title={'"We’re here to help with any questions, feedback, or support you need."'}/>
       <Container>
         <div className="md:flex p-2 justify-around items-center">
           <div className="space-y-6">

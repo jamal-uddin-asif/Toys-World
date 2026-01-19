@@ -5,12 +5,12 @@ const Banner = () => {
   return (
     <div
 
-      className={` sm:rounded-2xl overflow-hidden my-5 md:my-10 `}
+      className={` overflow-hidden my-5 md:my-10 `}
       // style={{backgroundImage: `url(${bannerImg})` }}
     >
       <div className="relative">
         <div className="bg-black">
-          <img className="opacity-50 " src={bannerImg} alt="" />
+          <img className="opacity-50 w-full" src={bannerImg} alt="" />
         </div>
         <div data-aos='fade-down' className="absolute font-semibold inset-0 flex justify-center items-center">
           <div className="text-center">

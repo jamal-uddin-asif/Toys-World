@@ -8,7 +8,7 @@ const AccountDetails = () => {
     console.log(user)
     return (
         <div className=' bg-white rounded-2xl shadow-xl p-3 md:p-8'>
-           <h1 className='text-4xl '>Account Details</h1>
+           <h1 className='md:text-4xl text-2xl mb-2'>Account Details</h1>
 
            <div className='space-y-4 md:p-5'>
             <div className='flex gap-7 items-center bg-gray-200 md:p-5 p-2 rounded-2xl'>

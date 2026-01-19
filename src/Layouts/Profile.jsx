@@ -11,8 +11,6 @@ import { toast } from "react-toastify";
 
 const Profile = () => {
   const { user, signout } = useContext(AuthContext);
-  const createAt = user?.metadata.creationTime;
-  const userCreateAt = new Date(createAt).toLocaleDateString();
 
   // console.log(user);
      useEffect(()=>{
@@ -74,8 +72,6 @@ const Profile = () => {
                 </button>
               </Link>
             </div>
-            {/* <p className="text-xl">Your email: {user?.email}</p>
-            <p>Your account create at: {userCreateAt}</p> */}
           </div>
           <hr />
           <div className="text-center py-4 text-gray-400">
